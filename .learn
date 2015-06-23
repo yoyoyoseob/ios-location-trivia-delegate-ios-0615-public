@@ -1,3 +1,6 @@
 languages:
   - objc
 tags:
+  - delegation
+  - protocols
+  - advanced

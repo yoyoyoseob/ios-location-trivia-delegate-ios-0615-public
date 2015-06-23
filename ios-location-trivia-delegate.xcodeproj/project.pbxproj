@@ -12,6 +12,9 @@
 		81216B382948A6AF38B1372F /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = C2DB6BE34FCFA347D5C300F2 /* LaunchScreen.xib */; };
 		ABCBEE36A2F87DFCC3AF1283 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DC4594DDF9C5FBA23430B169 /* Main.storyboard */; };
 		AEAB81C7277B0058BC9C7162 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27409456CE94F00996D38DFB /* Foundation.framework */; };
+		BDCEE86C1B39C5C000207246 /* FISLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCEE86B1B39C5C000207246 /* FISLocationsViewController.m */; };
+		BDCEE86F1B39C5CB00207246 /* FISAddLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCEE86E1B39C5CB00207246 /* FISAddLocationViewController.m */; };
+		BDCEE8721B39C5DE00207246 /* FISLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCEE8711B39C5DE00207246 /* FISLocation.m */; };
 		CA7F08C2F4E82DC85E023CAE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2036F85E033DB9924079DF7B /* Images.xcassets */; };
 		E493E11106385251ABBE6C56 /* FISAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DE917CB062D002DEAE9DF /* FISAppDelegate.m */; };
 /* End PBXBuildFile section */
@@ -38,6 +41,12 @@
 		874939C97F7C52405BA15493 /* libPods-unit_tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unit_tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2647B5AD883F2743980923 /* Pods-unit_tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9C6B610F260CEFC91323C77 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
+		BDCEE86A1B39C5C000207246 /* FISLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISLocationsViewController.h; sourceTree = "<group>"; };
+		BDCEE86B1B39C5C000207246 /* FISLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISLocationsViewController.m; sourceTree = "<group>"; };
+		BDCEE86D1B39C5CB00207246 /* FISAddLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISAddLocationViewController.h; sourceTree = "<group>"; };
+		BDCEE86E1B39C5CB00207246 /* FISAddLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISAddLocationViewController.m; sourceTree = "<group>"; };
+		BDCEE8701B39C5DE00207246 /* FISLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISLocation.h; sourceTree = "<group>"; };
+		BDCEE8711B39C5DE00207246 /* FISLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISLocation.m; sourceTree = "<group>"; };
 		C2DB6BE34FCFA347D5C300F2 /* LaunchScreen.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		DC4594DDF9C5FBA23430B169 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DC4E56293D7E2419B8C912EB /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -95,6 +104,12 @@
 				0653F8EAB4E0B4B86A2A6411 /* FISAppDelegate.h */,
 				4E1DE917CB062D002DEAE9DF /* FISAppDelegate.m */,
 				DC4594DDF9C5FBA23430B169 /* Main.storyboard */,
+				BDCEE8701B39C5DE00207246 /* FISLocation.h */,
+				BDCEE8711B39C5DE00207246 /* FISLocation.m */,
+				BDCEE86A1B39C5C000207246 /* FISLocationsViewController.h */,
+				BDCEE86B1B39C5C000207246 /* FISLocationsViewController.m */,
+				BDCEE86D1B39C5CB00207246 /* FISAddLocationViewController.h */,
+				BDCEE86E1B39C5CB00207246 /* FISAddLocationViewController.m */,
 				018317FA93A97E7012ABEBB6 /* Resources */,
 			);
 			path = "ios-location-trivia-delegate";
@@ -302,9 +317,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E493E11106385251ABBE6C56 /* FISAppDelegate.m in Sources */,
+				BDCEE8721B39C5DE00207246 /* FISLocation.m in Sources */,
 				ABCBEE36A2F87DFCC3AF1283 /* Main.storyboard in Sources */,
 				81216B382948A6AF38B1372F /* LaunchScreen.xib in Sources */,
 				524069D271A6F880189DA812 /* main.m in Sources */,
+				BDCEE86F1B39C5CB00207246 /* FISAddLocationViewController.m in Sources */,
+				BDCEE86C1B39C5C000207246 /* FISLocationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +361,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -437,6 +456,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
