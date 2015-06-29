@@ -8,10 +8,13 @@
 
 #import "FISLocationsViewController.h"
 #import "FISLocation.h"
+#import "FISAddLocationViewControllerDelegate.h"
+#import "FISAddLocationViewController.h"
 
-@interface FISLocationsViewController ()
+@interface FISLocationsViewController () <FISAddLocationViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *triviaLocations;
+@property (nonatomic, strong) NSMutableSet *locationSet;
 
 @end
 
@@ -25,6 +28,14 @@
     FISLocation *bowlingGreen = [[FISLocation alloc] initWithName:@"Bowling Green" trivia:@[ @"NYC's oldest park", @"Made a park in 1733", @"Charging Bull was created in 1989" ]];
 
     self.triviaLocations = [@[ empireStateBuilding, bowlingGreen ] mutableCopy];
+    
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 320.f, 10.0f)];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -57,7 +68,37 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    FISAddLocationViewController *destinationVC = segue.destinationViewController;
+    destinationVC.delegate = self;
+}
+
+-(void)addLocationViewControllerDidCancel:(FISAddLocationViewController *)viewController
+{
+    // Dismiss FISAddLocationViewController
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//-(BOOL)addLocationViewController:(FISAddLocationViewController *)viewController shouldAllowLocationNamed:(NSString *)locationName
+//{
+//    
+//    for (FISLocation *location in self.triviaLocations)
+//    {
+//        if ([[location.name lowercaseString] isEqualToString:[locationName lowercaseString]])
+//        {
+//            return NO;
+//        }
+//    }
+//    return YES;
+//}
+
+-(void)addLocationViewController:(FISAddLocationViewController *)viewController didAddLocationNamed:(NSString *)locationName
+{
+    // Should create new FISLocation object and add it to the array of locatoins
+    // Dismiss FISAddLocationViewController
+    FISLocation *newLocation = [[FISLocation alloc]initWithName:[locationName capitalizedString] trivia:@[]];
+    [self.triviaLocations addObject:newLocation];
     
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

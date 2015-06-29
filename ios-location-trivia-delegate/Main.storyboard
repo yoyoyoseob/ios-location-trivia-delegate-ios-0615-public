@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YqP-Mw-M1J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YqP-Mw-M1J">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -69,7 +69,7 @@
                                     <navigationItem title="Add Location" id="TOd-cq-WVH">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TTt-SV-oO4">
                                             <connections>
-                                                <action selector="cancelButtonTapped:" destination="eFU-jz-aJ7" id="M6G-bE-pEg"/>
+                                                <action selector="cancelButtonTapped:" destination="eFU-jz-aJ7" id="zrO-v5-OcY"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="pC6-mY-8mB">
@@ -90,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="nameField" destination="fg4-su-5Ja" id="KzX-fv-JRL"/>
+                        <outlet property="saveButton" destination="pC6-mY-8mB" id="TRZ-0S-dwC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNJ-0G-UKO" userLabel="First Responder" sceneMemberID="firstResponder"/>

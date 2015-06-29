@@ -8,9 +8,10 @@
 
 #import "FISAddLocationViewController.h"
 
-@interface FISAddLocationViewController ()
+@interface FISAddLocationViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 @end
 
@@ -19,19 +20,52 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.nameField becomeFirstResponder];
+    self.nameField.delegate = self;
+    self.saveButton.enabled = NO;
+    
 }
 
 -(IBAction)cancelButtonTapped:(id)sender
 {
+    [self.delegate addLocationViewControllerDidCancel:self];
 }
 
 -(IBAction)saveButtonTapped:(id)sender
 {
+    [self.delegate addLocationViewController:self didAddLocationNamed:self.nameField.text];
+    [self.delegate addLocationViewControllerDidCancel:self];
 }
 
 -(BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+//    if ([self.delegate addLocationViewController:self shouldAllowLocationNamed:textField.text])
+//    {
+        self.saveButton.enabled = YES;
+//        return YES;
+//    }
+//    [self alertView];
+//    return NO;
+    [self.nameField resignFirstResponder];
+    return YES;
+}
+
+-(void)alertView
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry!" message:@"It seems that location already exists" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Try again" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        self.nameField.text = @"";
+    }];
+    
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
